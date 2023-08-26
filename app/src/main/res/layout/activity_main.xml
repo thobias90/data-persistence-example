@@ -48,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:onClick="btAddOnClick"
         android:text="Add"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPhone" />
@@ -58,6 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:onClick="btChangeOnClick"
         android:text="Change"
         app:layout_constraintStart_toEndOf="@+id/btAdd"
         app:layout_constraintTop_toBottomOf="@+id/etPhone" />
@@ -68,6 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:onClick="btDeleteOnClick"
         android:text="Delete"
         app:layout_constraintStart_toEndOf="@+id/btChange"
         app:layout_constraintTop_toBottomOf="@+id/etPhone" />
@@ -78,6 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:onClick="btSearchOnClick"
         android:text="Search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btAdd" />
@@ -88,6 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:onClick="btListOnClick"
         android:text="List"
         app:layout_constraintStart_toEndOf="@+id/btSearch"
         app:layout_constraintTop_toBottomOf="@+id/btChange" />
