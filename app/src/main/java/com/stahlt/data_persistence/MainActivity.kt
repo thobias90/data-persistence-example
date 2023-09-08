@@ -2,6 +2,7 @@ package com.stahlt.data_persistence
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.stahlt.data_persistence.database.DatabaseHandler
@@ -23,24 +24,24 @@ class MainActivity : AppCompatActivity() {
         database = DatabaseHandler(this)
     }
 
-    fun btAddOnClick() {
+    fun btAddOnClick(view: View) {
         val student = Student(0, etName.text.toString(), etPhone.text.toString())
         database.create(student)
         Toast.makeText(this, "Element was added successfully",
             Toast.LENGTH_SHORT).show()
     }
-    fun btChangeOnClick() {
+    fun btChangeOnClick(view: View) {
         val student = Student(etCode.text.toString().toInt(), etName.text.toString(),
             etPhone.text.toString())
         database.update(student)
         Toast.makeText(this, "Element Changed", Toast.LENGTH_SHORT).show()
     }
-    fun btDeleteOnClick() {
+    fun btDeleteOnClick(view: View) {
         val code = etCode.text.toString().toInt()
         database.delete(code)
         Toast.makeText(this, "Element Deleted", Toast.LENGTH_SHORT).show()
     }
-    fun btSearchOnClick() {
+    fun btSearchOnClick(view: View) {
         val code = etCode.text.toString().toInt()
         val student: Student? = database.read(code)
         if (student != null) {
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Register not found", Toast.LENGTH_SHORT).show()
         }
     }
-    fun btListOnClick() {
+    fun btListOnClick(view: View) {
         val databaseList: String = database.list()
         Toast.makeText(this, databaseList, Toast.LENGTH_LONG).show()
     }
