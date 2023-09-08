@@ -51,7 +51,7 @@ class DatabaseHandler(context: Context): SQLiteOpenHelper(context, DATABASE_NAME
     }
     fun update(student: Student) {
         val db = this.writableDatabase
-        val id = student._id
+        val id = student.id
         val register = ContentValues()
         register.put(KEY_NAME, student.name)
         register.put(KEY_PHONE, student.phone)
