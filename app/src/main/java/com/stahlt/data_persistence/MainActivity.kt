@@ -1,5 +1,6 @@
 package com.stahlt.data_persistence
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -52,7 +53,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun btListOnClick(view: View) {
-        val databaseList: String = database.list()
-        Toast.makeText(this, databaseList, Toast.LENGTH_LONG).show()
+//        val databaseList: String = database.list()
+//        Toast.makeText(this, databaseList, Toast.LENGTH_LONG).show()
+        val intent = Intent(this, ListActivity::class.java)
+        startActivity(intent)
     }
 }
