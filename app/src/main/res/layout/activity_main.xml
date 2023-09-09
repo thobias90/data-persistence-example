@@ -13,10 +13,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Code"
+        android:hint="@string/code"
         android:inputType="number"
+        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/etName"
@@ -25,10 +27,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="@string/name"
         android:inputType="text"
+        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCode" />
+        app:layout_constraintTop_toBottomOf="@+id/etCode"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/etPhone"
@@ -37,10 +41,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Phone"
+        android:hint="@string/phone"
         android:inputType="phone"
+        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
+        app:layout_constraintTop_toBottomOf="@+id/etName"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/btAdd"
@@ -49,7 +55,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:onClick="btAddOnClick"
-        android:text="Add"
+        android:text="@string/add"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPhone" />
 
@@ -60,7 +66,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:onClick="btChangeOnClick"
-        android:text="Change"
+        android:text="@string/change"
         app:layout_constraintStart_toEndOf="@+id/btAdd"
         app:layout_constraintTop_toBottomOf="@+id/etPhone" />
 
@@ -71,7 +77,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:onClick="btDeleteOnClick"
-        android:text="Delete"
+        android:text="@string/delete"
         app:layout_constraintStart_toEndOf="@+id/btChange"
         app:layout_constraintTop_toBottomOf="@+id/etPhone" />
 
@@ -82,7 +88,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:onClick="btSearchOnClick"
-        android:text="Search"
+        android:text="@string/search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btAdd" />
 
@@ -93,7 +99,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:onClick="btListOnClick"
-        android:text="List"
+        android:text="@string/list"
         app:layout_constraintStart_toEndOf="@+id/btSearch"
         app:layout_constraintTop_toBottomOf="@+id/btChange" />
 
