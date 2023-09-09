@@ -2,10 +2,10 @@ package com.stahlt.data_persistence.database
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.stahlt.data_persistence.entity.Student
-import java.lang.StringBuilder
 
 class DatabaseHandler(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
     null, DATABASE_VERSION) {
@@ -63,20 +63,26 @@ class DatabaseHandler(context: Context): SQLiteOpenHelper(context, DATABASE_NAME
         db.delete(TABLE_NAME, "$KEY_ID=$id", null)
     }
 
-    fun list(): String {
+    fun list(): MutableList<Student> {
         val db = this.readableDatabase
         val cursor = db.query(TABLE_NAME, null, null, null,
             null, null, null)
-        val output = StringBuilder()
+
+        val registers = mutableListOf<Student>()
+
         while(cursor.moveToNext()) {
-            output.append(cursor.getInt(0))
-            output.append(" ")
-            output.append(cursor.getString(1))
-            output.append(" ")
-            output.append(cursor.getString(2))
-            output.append("\n")
+            val student = Student(cursor.getInt(0), cursor.getString(1), cursor.getString(2))
+            registers.add(student)
         }
         cursor.close()
-        return "$output"
+        return registers
+    }
+
+    fun listCursor(): Cursor {
+        val db = this.readableDatabase
+        return db.query(
+            TABLE_NAME, null, null, null,
+            null, null, null
+        )
     }
 }
