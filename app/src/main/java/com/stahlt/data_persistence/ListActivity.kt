@@ -1,14 +1,12 @@
 package com.stahlt.data_persistence
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.CursorAdapter
+import android.view.View
 import android.widget.ListView
-import android.widget.SimpleCursorAdapter
 import com.stahlt.data_persistence.adapter.MyAdapter
 import com.stahlt.data_persistence.database.DatabaseHandler
-import com.stahlt.data_persistence.entity.Student
 
 class ListActivity : AppCompatActivity() {
     private lateinit var database: DatabaseHandler
@@ -17,20 +15,26 @@ class ListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
+        lvRegisters = findViewById(R.id.lvRegisters)
         database = DatabaseHandler(this)
-        val cursor = database.listCursor()
 
+        val cursor = database.listCursor()
         val adapter = MyAdapter(this, cursor)
 
-        lvRegisters = findViewById(R.id.lvRegisters)
         lvRegisters.adapter = adapter
     }
 
-    fun getNameArrayList(registers: MutableList<Student>): MutableList<String> {
-        val nameList = mutableListOf<String>()
-        for (register in registers) {
-            nameList.add(register.name)
-        }
-        return nameList
+    override fun onRestart() {
+        super.onRestart()
+
+        val cursor = database.listCursor()
+        val adapter = MyAdapter(this, cursor)
+
+        lvRegisters.adapter = adapter
+    }
+
+    fun btAddOnClick(view: View) {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }
