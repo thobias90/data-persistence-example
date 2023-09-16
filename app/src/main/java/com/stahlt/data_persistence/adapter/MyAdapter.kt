@@ -1,12 +1,15 @@
 package com.stahlt.data_persistence.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.database.Cursor
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageButton
 import android.widget.TextView
+import com.stahlt.data_persistence.MainActivity
 import com.stahlt.data_persistence.R
 import com.stahlt.data_persistence.entity.Student
 
@@ -40,11 +43,21 @@ class MyAdapter(private val context: Context, private val cursor: Cursor): BaseA
 
         val tvNameListElement = listElement.findViewById<TextView>(R.id.tvNameListElement)
         val tvPhoneListElement = listElement.findViewById<TextView>(R.id.tvPhoneListElement)
+        val btEditListElement = listElement.findViewById<ImageButton>(R.id.btEditListElement)
 
         cursor.moveToPosition(id)
 
         tvNameListElement.text = cursor.getString(NAME_INDEX)
         tvPhoneListElement.text = cursor.getString(PHONE_INDEX)
+
+        btEditListElement.setOnClickListener {
+            cursor.moveToPosition(id)
+            val intent = Intent(context, MainActivity::class.java)
+            intent.putExtra("code", cursor.getInt(ID_INDEX))
+            intent.putExtra("name", cursor.getString(NAME_INDEX))
+            intent.putExtra("phone", cursor.getString(PHONE_INDEX))
+            context.startActivity(intent)
+        }
 
         return listElement
     }
