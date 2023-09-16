@@ -13,12 +13,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:enabled="false"
         android:hint="@string/code"
+        android:importantForAutofill="no"
         android:inputType="number"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etName"
@@ -49,25 +50,13 @@
         android:importantForAutofill="no" />
 
     <Button
-        android:id="@+id/btAdd"
+        android:id="@+id/btSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:onClick="btAddOnClick"
-        android:text="@string/add"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPhone" />
-
-    <Button
-        android:id="@+id/btChange"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:onClick="btChangeOnClick"
-        android:text="@string/change"
-        app:layout_constraintStart_toEndOf="@+id/btAdd"
+        android:onClick="btSaveOnClick"
+        android:text="@string/save"
+        app:layout_constraintStart_toStartOf="@+id/etPhone"
         app:layout_constraintTop_toBottomOf="@+id/etPhone" />
 
     <Button
@@ -78,29 +67,17 @@
         android:layout_marginTop="16dp"
         android:onClick="btDeleteOnClick"
         android:text="@string/delete"
-        app:layout_constraintStart_toEndOf="@+id/btChange"
+        app:layout_constraintStart_toEndOf="@+id/btSave"
         app:layout_constraintTop_toBottomOf="@+id/etPhone" />
 
     <Button
         android:id="@+id/btSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
         android:onClick="btSearchOnClick"
         android:text="@string/search"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btAdd" />
-
-    <Button
-        android:id="@+id/btList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:onClick="btListOnClick"
-        android:text="@string/list"
-        app:layout_constraintStart_toEndOf="@+id/btSearch"
-        app:layout_constraintTop_toBottomOf="@+id/btChange" />
+        app:layout_constraintStart_toEndOf="@+id/btDelete"
+        app:layout_constraintTop_toTopOf="@+id/btDelete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
