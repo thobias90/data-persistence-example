@@ -20,14 +20,6 @@ class ListActivity : AppCompatActivity() {
         database = DatabaseHandler(this)
         val cursor = database.listCursor()
 
-//        val adapter = SimpleCursorAdapter(
-//            this,
-//            android.R.layout.simple_list_item_2,
-//            cursor,
-//            arrayOf("name", "phone"),
-//            intArrayOf(android.R.id.text1, android.R.id.text2),
-//            0)
-
         val adapter = MyAdapter(this, cursor)
 
         lvRegisters = findViewById(R.id.lvRegisters)
