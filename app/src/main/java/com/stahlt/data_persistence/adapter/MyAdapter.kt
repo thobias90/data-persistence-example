@@ -16,7 +16,7 @@ private const val PHONE_INDEX = 2
 
 private const val ID_INDEX = 0
 
-class MyAdapter(val context: Context, private val cursor: Cursor): BaseAdapter() {
+class MyAdapter(private val context: Context, private val cursor: Cursor): BaseAdapter() {
     override fun getCount(): Int {
         return cursor.count
     }
